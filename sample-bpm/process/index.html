@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="page" ng-controller="PageController">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="data:;base64,iVBORw0KGgo=" dg-brand-icon />
+        <title dg-brand-title></title>
+        <theme></theme>
+        <script type="text/javascript" src="/services/v4/js/resources-core/services/loader.js?id=application-view-js">
+        </script>
+        <link type="text/css" rel="stylesheet"
+            href="/services/v4/js/resources-core/services/loader.js?id=application-view-css" />
+
+        <script type="text/javascript" src="controller.js"></script>
+    </head>
+
+    <body class="dg-vbox" dg-contextmenu="contextMenuContent">
+
+        <div>
+            <fd-message-page glyph="sap-icon--time-entry-request">
+                <fd-message-page-title>Approve Time Entry Request</fd-message-page-title>
+                <fd-message-page-subtitle>
+                    <fd-scrollbar class="dg-full-height">
+                        <fd-fieldset class="fd-margin--md" ng-form="formFieldset">
+                            <fd-form-group name="entityForm">
+                                <fd-form-item horizontal="false">
+                                    <fd-form-label for="idHours" dg-colon="true">Hours
+                                    </fd-form-label>
+                                    <fd-form-input-message-group>
+                                        <fd-input id="idProject" name="Project" ng-model="entity.Project" type="input"
+                                            ng-readonly="true">
+                                        </fd-input>
+                                        <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+                                    </fd-form-input-message-group>
+                                </fd-form-item>
+                                <fd-form-item horizontal="false">
+                                    <fd-form-label for="idStart" dg-colon="true">Start
+                                    </fd-form-label>
+                                    <fd-form-input-message-group>
+                                        <fd-input id="idStart" name="Start" ng-model="entity.Start" type="date"
+                                            ng-readonly="true">
+                                        </fd-input>
+                                        <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+                                    </fd-form-input-message-group>
+                                </fd-form-item>
+                                <fd-form-item horizontal="false">
+                                    <fd-form-label for="idEnd" dg-colon="true">End</fd-form-label>
+                                    <fd-form-input-message-group>
+                                        <fd-input id="idEnd" name="End" ng-model="entity.End" type="date"
+                                            ng-readonly="true">
+                                        </fd-input>
+                                        <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+                                    </fd-form-input-message-group>
+                                </fd-form-item>
+                                <fd-form-item horizontal="false">
+                                    <fd-form-label for="idHours" dg-colon="true">Hours
+                                    </fd-form-label>
+                                    <fd-form-input-message-group>
+                                        <fd-input id="idHours" name="Hours" ng-model="entity.Hours" type="number"
+                                            ng-readonly="true">
+                                        </fd-input>
+                                        <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+                                    </fd-form-input-message-group>
+                                </fd-form-item>
+                            </fd-form-group>
+                        </fd-fieldset>
+                    </fd-scrollbar>
+                </fd-message-page-subtitle>
+                <fd-message-page-actions>
+                    <fd-button class="fd-margin-end--tiny fd-dialog__decisive-button" compact="true"
+                        dg-type="emphasized" dg-label="Approve" ng-click="approve()">
+                    </fd-button>
+                    <fd-button class="fd-dialog__decisive-button" compact="true" dg-type="negative" dg-label="Reject"
+                        ng-click="Reject()"></fd-button>
+                </fd-message-page-actions>
+            </fd-message-page>
+        </div>
+
+    </body>
+
+</html>
