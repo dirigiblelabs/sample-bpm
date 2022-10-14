@@ -1,6 +1,6 @@
 const process = require("bpm/v4/process");
-let mailClient = require("mail/v4/client");
-let config = require("core/v4/configurations");
+const mailClient = require("mail/v4/client");
+const config = require("core/v4/configurations");
 
 let execution = process.getExecutionContext();
 let executionId = execution.getId();
@@ -10,15 +10,15 @@ let user = process.getVariable(executionId, "user");
 console.log(`Time Entry Request Approved for User [${user}]`);
 
 if (isMailConfigured()) {
-    console.error("Missing mail configuration");
-} else {
     let from = config.get("APP_SAMPLE_BPM_FROM_EMAIL");
     let to = config.get("APP_SAMPLE_BPM_TO_EMAIL");
     let subject = "Time Entry Request - Approved";
-    let content = `<h1>Status:</h1><br><p>Time Entry Request for [${user}] - Approved</p>`;
+    let content = `<h2>Status:</h2><h4>Time Entry Request for [${user}] - Approved</4>`;
     let subType = "html";
 
     mailClient.send(from, to, subject, content, subType);
+} else {
+    console.error("Missing mail configuration");
 }
 
 function isMailConfigured() {
