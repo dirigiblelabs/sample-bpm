@@ -35,6 +35,7 @@ angular.module('page', ["ideUI", "ideView"])
 					return;
 				}
 				alert("Time Entry Request successfully submitted");
+				$scope.resetForm();
 			});
 		};
 
