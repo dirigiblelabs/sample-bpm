@@ -23,5 +23,5 @@ APP_SAMPLE_BPM_FROM_EMAIL=<SENDER_EMAIL>
 APP_SAMPLE_BPM_TO_EMAIL=<RECEIVER_EMAIL>
 ```
 
-> _**Note**: Find out more about [Connecting Eclipse Dirigible with SendGrid SMTP Relay
+> _**Note**: Find out more at [Connecting Eclipse Dirigible with SendGrid SMTP Relay
 ](https://www.dirigible.io/blogs/2022/09/12/sendgrid-smtp-relay-setup/)_
