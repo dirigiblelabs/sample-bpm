@@ -15,14 +15,17 @@ rs.service()
         });
         response.setStatus(response.ACCEPTED);
     })
-    .resource("continue/:executionId").get((ctx, request, response) => {
+    .resource("continue/:executionId")
+    .post((ctx, request, response) => {
         let executionId = request.params.executionId;
         let tasksList = tasks.list();
         let data = request.getJSON();
         for (const task of tasksList) {
             if (task.executionId.toString() === executionId.toString()) {
-                console.log("!!! task vars: " + JSON.stringify(tasks.getTaskVariables(task.id)));
-                tasks.completeTask(task.id, {});
+                tasks.completeTask(task.id, {
+                    isRequestApproved: data.approved,
+                    user: data.user
+                });
                 break;
             }
         }

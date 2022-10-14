@@ -1,5 +1,8 @@
-var response = require("http/v4/response");
+const process = require("bpm/v4/process");
 
-response.println("Hello World!");
-response.flush();
-response.close();
+let execution = process.getExecutionContext();
+let executionId = execution.getId();
+
+let user = process.getVariable(executionId, "user");
+
+console.log(`Time Entry Request Approved for User [${user}]`);

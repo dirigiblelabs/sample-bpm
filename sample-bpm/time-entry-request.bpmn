@@ -5,7 +5,7 @@
     <serviceTask id="sid-ED1BBD7E-41C4-42D7-A933-2CD979372BE7" name="Send Notification" flowable:class="org.eclipse.dirigible.bpm.flowable.DirigibleCallDelegate">
       <extensionElements>
         <flowable:field name="handler">
-          <flowable:string><![CDATA[sample-bpm/send-notification.js]]></flowable:string>
+          <flowable:string><![CDATA[sample-bpm/tasks/send-notification.js]]></flowable:string>
         </flowable:field>
       </extensionElements>
     </serviceTask>
@@ -15,25 +15,25 @@
     <serviceTask id="sid-07258D72-C009-406E-82EE-512FC68F9339" name="Approve Time Entry Request" flowable:class="org.eclipse.dirigible.bpm.flowable.DirigibleCallDelegate">
       <extensionElements>
         <flowable:field name="handler">
-          <flowable:string><![CDATA[sample-bpm/approve-request.js]]></flowable:string>
+          <flowable:string><![CDATA[sample-bpm/tasks/approve-request.js]]></flowable:string>
         </flowable:field>
       </extensionElements>
     </serviceTask>
-    <exclusiveGateway id="sid-9D358738-173A-49C8-8B5C-DE28F95CF812" default="sid-300248C3-876E-4B89-86F4-E978FA150CA5"/>
+    <exclusiveGateway id="sid-9D358738-173A-49C8-8B5C-DE28F95CF812" default="sid-354260C8-2700-4D26-ACB3-03990B1B83B6"/>
     <sequenceFlow id="sid-A3B49B75-2D22-4D46-A01D-89663F5D9398" sourceRef="sid-1949B473-2C74-4A44-BBB5-EA6235D62426" targetRef="sid-9D358738-173A-49C8-8B5C-DE28F95CF812"/>
     <sequenceFlow id="sid-645847E8-C959-48BD-816B-2E9CC4A2F08A" sourceRef="sid-ED1BBD7E-41C4-42D7-A933-2CD979372BE7" targetRef="sid-1949B473-2C74-4A44-BBB5-EA6235D62426"/>
     <serviceTask id="sid-EBA0B783-C844-4C0D-AFAD-18699F661DB4" name="Reject Time Entry Request" flowable:class="org.eclipse.dirigible.bpm.flowable.DirigibleCallDelegate">
       <extensionElements>
         <flowable:field name="handler">
-          <flowable:string><![CDATA[sample-bpm/reject-request.js]]></flowable:string>
+          <flowable:string><![CDATA[sample-bpm/tasks/reject-request.js]]></flowable:string>
         </flowable:field>
       </extensionElements>
     </serviceTask>
     <sequenceFlow id="sid-23401766-A5CA-4A91-8187-EDDCCD2BC5D5" sourceRef="sid-EBA0B783-C844-4C0D-AFAD-18699F661DB4" targetRef="sid-70B488C1-384A-4E19-8091-1B12D1AEC7FD"/>
     <sequenceFlow id="sid-4CFA2E86-C3CD-4290-95B9-010BC9C0BEDC" sourceRef="sid-07258D72-C009-406E-82EE-512FC68F9339" targetRef="sid-70B488C1-384A-4E19-8091-1B12D1AEC7FD"/>
-    <sequenceFlow id="sid-300248C3-876E-4B89-86F4-E978FA150CA5" sourceRef="sid-9D358738-173A-49C8-8B5C-DE28F95CF812" targetRef="sid-07258D72-C009-406E-82EE-512FC68F9339"/>
-    <sequenceFlow id="sid-354260C8-2700-4D26-ACB3-03990B1B83B6" sourceRef="sid-9D358738-173A-49C8-8B5C-DE28F95CF812" targetRef="sid-EBA0B783-C844-4C0D-AFAD-18699F661DB4">
-      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${isRequestRejected}]]></conditionExpression>
+    <sequenceFlow id="sid-354260C8-2700-4D26-ACB3-03990B1B83B6" sourceRef="sid-9D358738-173A-49C8-8B5C-DE28F95CF812" targetRef="sid-EBA0B783-C844-4C0D-AFAD-18699F661DB4"/>
+    <sequenceFlow id="sid-300248C3-876E-4B89-86F4-E978FA150CA5" sourceRef="sid-9D358738-173A-49C8-8B5C-DE28F95CF812" targetRef="sid-07258D72-C009-406E-82EE-512FC68F9339">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${isRequestApproved}]]></conditionExpression>
     </sequenceFlow>
   </process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_time-entry-request">

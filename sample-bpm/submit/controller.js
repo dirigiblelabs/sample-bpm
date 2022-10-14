@@ -28,7 +28,7 @@ angular.module('page', ["ideUI", "ideView"])
 		};
 
 		$scope.submit = function () {
-			$http.post("/services/v4/js/sample-bpm/api/process.js?debug=true", JSON.stringify($scope.entity)).then(function (response) {
+			$http.post("/services/v4/js/sample-bpm/api/process.js", JSON.stringify($scope.entity)).then(function (response) {
 				if (response.status != 202) {
 					alert(`Unable to submit Time Entry Request: '${response.message}'`);
 					$scope.resetForm();
