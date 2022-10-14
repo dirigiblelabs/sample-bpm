@@ -22,9 +22,9 @@ angular.module('page', ["ideUI", "ideView"])
 			)).then(function (response) {
 				if (response.status != 202) {
 					alert(`Unable to approve Time Entry Request: '${response.message}'`);
-					$scope.resetForm();
 					return;
 				}
+				$scope.entity = {};
 				alert("Time Entry Request Approved");
 			});
 		};
@@ -38,9 +38,9 @@ angular.module('page', ["ideUI", "ideView"])
 			)).then(function (response) {
 				if (response.status != 202) {
 					alert(`Unable to reject Time Entry Request: '${response.message}'`);
-					$scope.resetForm();
 					return;
 				}
+				$scope.entity = {};
 				alert("Time Entry Request Rejected");
 			});
 		};
