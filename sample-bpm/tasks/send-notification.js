@@ -1,7 +1,7 @@
-const process = require("bpm/v4/process");
-const base64 = require("utils/v4/base64");
-const mailClient = require("mail/v4/client");
-const config = require("core/v4/configurations");
+const process = require("bpm/process");
+const base64 = require("utils/base64");
+const mailClient = require("mail/client");
+const config = require("core/configurations");
 
 let execution = process.getExecutionContext();
 let executionId = execution.getId();
@@ -15,12 +15,18 @@ let data = {
     Hours: process.getVariable(executionId, "Hours")
 };
 
-
 let urlEncodedData = base64.encode(JSON.stringify(data));
 
-let url = `http://localhost:8080/services/v4/web/sample-bpm/process/?data=${urlEncodedData}`;
+let url = `http://localhost:8080/services/web/sample-bpm/process/?data=${urlEncodedData}`;
 
 console.log(`Approve Request URL: ${url}`);
+
+/*
+Uncomment this code if you want to test built-in retries and the retrigger action
+if (process.getVariable(executionId, "IMPORTANT_PARAM") === null) {
+    throw new Error('Very important parameter is missing !!!');
+}
+*/
 
 if (isMailConfigured()) {
     let from = config.get("APP_SAMPLE_BPM_FROM_EMAIL");
@@ -35,11 +41,5 @@ if (isMailConfigured()) {
 }
 
 function isMailConfigured() {
-    return config.get("DIRIGIBLE_MAIL_USERNAME") != ""
-        && config.get("DIRIGIBLE_MAIL_PASSWORD") != ""
-        && config.get("DIRIGIBLE_MAIL_TRANSPORT_PROTOCOL") != ""
-        && config.get("DIRIGIBLE_MAIL_SMTPS_HOST") != ""
-        && config.get("DIRIGIBLE_MAIL_SMTPS_PORT") != ""
-        && config.get("APP_SAMPLE_BPM_FROM_EMAIL") != ""
-        && config.get("APP_SAMPLE_BPM_TO_EMAIL") != ""
+    return false;
 }

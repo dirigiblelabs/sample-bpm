@@ -1,6 +1,6 @@
-const process = require("bpm/v4/process");
-const mailClient = require("mail/v4/client");
-const config = require("core/v4/configurations");
+const process = require("bpm/process");
+const mailClient = require("mail/client");
+const config = require("core/configurations");
 
 let execution = process.getExecutionContext();
 let executionId = execution.getId();
