@@ -1,1 +1,4 @@
-{"guid":"sample-bpm"}
+{
+    "guid": "sample-bpm",
+    "actions": []
+}

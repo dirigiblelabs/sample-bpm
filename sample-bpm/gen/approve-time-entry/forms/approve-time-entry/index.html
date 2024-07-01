@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="forms" ng-controller="FormController">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" sizes="any" href="data:;base64,iVBORw0KGgo=">
+		<title dg-view-title></title>
+		<script type="text/javascript" src="view.js"></script>
+		<script type="text/javascript" src="/services/js/resources-core/services/loader.js?id=ide-view-js"></script>
+		<link type="text/css" rel="stylesheet" href="/services/js/resources-core/services/loader.js?id=ide-view-css" />
+		<theme></theme>
+		<script type="text/javascript" src="controller.js"></script>
+	</head>
+
+	<body class="dg-vbox">
+		<fd-fieldset class="fd-margin--tiny" ng-form="forms.form">
+
+			<fd-form-item horizontal="false">
+				<fd-form-label dg-colon="true" dg-required="true" for="i8eb25310-5c60-da90-3e71-41d946687248">Reason</fd-form-label>
+				<fd-form-input-message-group dg-inactive="{{forms.form['i8eb25310-5c60-da90-3e71-41d946687248'].$valid}}">
+					<fd-textarea id="i8eb25310-5c60-da90-3e71-41d946687248"
+						name="i8eb25310-5c60-da90-3e71-41d946687248"
+						ng-model="model.decisionText"
+						ng-required="true"
+						type="text"
+						compact="false"
+						placeholder="Decision reason"
+						state="{{ !forms.form['i8eb25310-5c60-da90-3e71-41d946687248'].$valid ? 'error' : '' }}"
+						ng-trim="false"
+						ng-minlength="0.0"
+						ng-maxlength="-1.0">
+					</fd-textarea>
+					<fd-form-message dg-type="error">Incorrect input</fd-form-message>
+				</fd-form-input-message-group>
+			</fd-form-item>
+<div class=" dg-hbox dg-box--gap dg-box--stretch-items">
+			<div>
+				<fd-button class="dg-full-width" type="submit" dg-label="Approve" compact="false" dg-type="positive" ng-click="approve()"></fd-button>
+			</div>
+			<div>
+				<fd-button class="dg-full-width" type="submit" dg-label="Reject" compact="false" dg-type="negative" ng-click="reject()"></fd-button>
+			</div>
+</div>
+
+		</fd-fieldset>
+
+	</body>
+
+</html>
