@@ -9,8 +9,7 @@
 1. (Optional) Restart the Eclipse Dirigible instance to apply the new environment variables.
 
 ## Process
-
-<img width="1438" alt="Screenshot 2022-10-14 at 23 32 28" src="https://user-images.githubusercontent.com/4092083/195938498-32129208-f218-4365-9ce4-6f4238c44688.png">
+<img width="1330" alt="image" src="https://github.com/dirigiblelabs/sample-bpm/assets/5058839/efbf5058-8179-4de6-bf9d-e1754bd0f10e">
 
 ## Mail Environment Variabels
 
