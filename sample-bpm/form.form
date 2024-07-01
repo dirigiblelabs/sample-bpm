@@ -1,0 +1,49 @@
+{
+    "feeds": [],
+    "scripts": [],
+    "code": "let url = new URL(window.location);\nlet params = new URLSearchParams(url.search);\nlet taskId = params.get(\"taskId\");\nconsole.log(taskId);\n\n$scope.approve = function () {\n    $http.post(\"/services/bpm/bpm-processes/tasks/\" + taskId, JSON.stringify(\n        {\n            action: \"COMPLETE\",\n            data: {\n                user: $scope.user,\n                decision: $scope.model.decisionText,\n                isRequestApproved: true\n            }\n        }\n    )).then(function (response) {\n        if (response.status != 200) {\n            alert(`Unable to approve Time Entry Request: '${response.message}'`);\n            return;\n        }\n        $scope.entity = {};\n        alert(\"Time Entry Request Approved\");\n    });\n};\n\n$scope.reject = function () {\n    $http.post(\"/services/bpm/bpm-processes/tasks/\" + taskId, JSON.stringify(\n        {\n            action: \"COMPLETE\",\n            data: {\n                user: $scope.user,\n                decision: $scope.model.decisionText,\n                isRequestApproved: true\n            }\n        }\n    )).then(function (response) {\n        if (response.status != 200) {\n            alert(`Unable to reject Time Entry Request: '${response.message}'`);\n            return;\n        }\n        $scope.entity = {};\n        alert(\"Time Entry Request Rejected\");\n    });\n};",
+    "form": [
+        {
+            "controlId": "input-textarea",
+            "groupId": "fb-controls",
+            "id": "i8eb25310-5c60-da90-3e71-41d946687248",
+            "label": "Reason",
+            "horizontal": false,
+            "isCompact": false,
+            "placeholder": "Decision reason",
+            "type": "text",
+            "model": "decisionText",
+            "required": true,
+            "minLength": 0,
+            "maxLength": -1,
+            "validationRegex": "",
+            "errorState": "Incorrect input"
+        },
+        {
+            "controlId": "container-hbox",
+            "groupId": "fb-containers",
+            "children": [
+                {
+                    "controlId": "button",
+                    "groupId": "fb-controls",
+                    "label": "Approve",
+                    "type": "positive",
+                    "sizeToText": false,
+                    "isSubmit": true,
+                    "isCompact": false,
+                    "callback": "approve()"
+                },
+                {
+                    "controlId": "button",
+                    "groupId": "fb-controls",
+                    "label": "Reject",
+                    "type": "negative",
+                    "sizeToText": false,
+                    "isSubmit": true,
+                    "isCompact": false,
+                    "callback": "reject()"
+                }
+            ]
+        }
+    ]
+}
