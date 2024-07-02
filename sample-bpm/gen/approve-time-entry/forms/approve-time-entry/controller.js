@@ -11,19 +11,15 @@ formView.controller('FormController', ['$scope', '$http', function ($scope, $htt
     let url = new URL(window.location);
     let params = new URLSearchParams(url.search);
     let taskId = params.get("taskId");
-    console.log("Task id: " + taskId);
     
     $scope.approve = function () {
-        $http.post("/services/bpm/bpm-processes/tasks/" + taskId, JSON.stringify(
-            {
-                action: "COMPLETE",
-                data: {
-                    user: $scope.user,
-                    decision: $scope.model.decisionText,
-                    isRequestApproved: true
-                }
-            }
-        )).then(function (response) {
+        const data = {
+            taskId : taskId,
+            reason: $scope.model.reason
+        };
+    
+        $http.post("/services/ts/sample-bpm/api/TimeEntryService.ts/approveRequest", JSON.stringify(data))
+            .then(function (response) {
             if (response.status != 200) {
                 alert(`Unable to approve Time Entry Request: '${response.message}'`);
                 return;
@@ -34,16 +30,13 @@ formView.controller('FormController', ['$scope', '$http', function ($scope, $htt
     };
     
     $scope.reject = function () {
-        $http.post("/services/bpm/bpm-processes/tasks/" + taskId, JSON.stringify(
-            {
-                action: "COMPLETE",
-                data: {
-                    user: $scope.user,
-                    decision: $scope.model.decisionText,
-                    isRequestApproved: true
-                }
-            }
-        )).then(function (response) {
+        const data = {
+            taskId : taskId,
+            reason: $scope.model.reason
+        };
+    
+        $http.post("/services/ts/sample-bpm/api/TimeEntryService.ts/rejectRequest", JSON.stringify(data))
+            .then(function (response) {
             if (response.status != 200) {
                 alert(`Unable to reject Time Entry Request: '${response.message}'`);
                 return;

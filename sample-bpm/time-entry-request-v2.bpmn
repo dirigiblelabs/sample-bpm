@@ -31,10 +31,10 @@
     </serviceTask>
     <sequenceFlow id="sid-23401766-A5CA-4A91-8187-EDDCCD2BC5D5" sourceRef="sid-EBA0B783-C844-4C0D-AFAD-18699F661DB4" targetRef="sid-70B488C1-384A-4E19-8091-1B12D1AEC7FD"/>
     <sequenceFlow id="sid-4CFA2E86-C3CD-4290-95B9-010BC9C0BEDC" sourceRef="sid-07258D72-C009-406E-82EE-512FC68F9339" targetRef="sid-70B488C1-384A-4E19-8091-1B12D1AEC7FD"/>
-    <sequenceFlow id="sid-354260C8-2700-4D26-ACB3-03990B1B83B6" sourceRef="sid-9D358738-173A-49C8-8B5C-DE28F95CF812" targetRef="sid-EBA0B783-C844-4C0D-AFAD-18699F661DB4"/>
     <sequenceFlow id="sid-300248C3-876E-4B89-86F4-E978FA150CA5" sourceRef="sid-9D358738-173A-49C8-8B5C-DE28F95CF812" targetRef="sid-07258D72-C009-406E-82EE-512FC68F9339">
-      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${isRequestApproved}]]></conditionExpression>
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${requestApproved}]]></conditionExpression>
     </sequenceFlow>
+    <sequenceFlow id="sid-354260C8-2700-4D26-ACB3-03990B1B83B6" sourceRef="sid-9D358738-173A-49C8-8B5C-DE28F95CF812" targetRef="sid-EBA0B783-C844-4C0D-AFAD-18699F661DB4"/>
   </process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_time-entry-request">
     <bpmndi:BPMNPlane bpmnElement="time-entry-request" id="BPMNPlane_time-entry-request">

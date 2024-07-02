@@ -1,7 +1,7 @@
 {
     "feeds": [],
     "scripts": [],
-    "code": "$scope.onSubmitClicked = function(){\n    $http.post(\"/services/ts/sample-bpm/api/TimeEntryService.ts\", JSON.stringify($scope.model)).then(function (response) {\n        if (response.status != 202) {\n            alert(`Unable to submit Time Entry Request: '${response.message}'`);\n            $scope.resetForm();\n            return;\n        }\n        alert(\"Time Entry Request successfully submitted\");\n        $scope.resetForm();\n    });\n}\n\n$scope.resetForm = function () {\n    $scope.model = {};\n    $scope.model.project = '';\n    $scope.model.hours = 0;\n    $scope.model.startDate = new Date();\n    $scope.model.endDate = new Date();\n};\n\n$scope.resetForm();",
+    "code": "$scope.onSubmitClicked = function(){\n    $http.post(\"/services/ts/sample-bpm/api/TimeEntryService.ts/submitRequest\", JSON.stringify($scope.model)).then(function (response) {\n        if (response.status != 202) {\n            alert(`Unable to submit Time Entry Request: '${response.message}'`);\n            $scope.resetForm();\n            return;\n        }\n        alert(\"Time Entry Request successfully submitted\");\n        $scope.resetForm();\n    });\n}\n\n$scope.resetForm = function () {\n    $scope.model = {};\n    $scope.model.project = '';\n    $scope.model.hours = 0;\n    $scope.model.startDate = new Date();\n    $scope.model.endDate = new Date();\n};\n\n$scope.resetForm();",
     "form": [
         {
             "controlId": "container-vbox",

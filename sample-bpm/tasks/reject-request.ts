@@ -6,11 +6,13 @@ const execution = process.getExecutionContext();
 const executionId = execution.getId();
 
 const requester = process.getVariable(executionId, "requester");
+const approver = process.getVariable(executionId, "approver");
+const reason = process.getVariable(executionId, "reason");
 
 const from = config.get("APP_SAMPLE_BPM_FROM_EMAIL");
 const to = config.get("APP_SAMPLE_BPM_TO_EMAIL");
 const subject = "Time Entry Request - Rejected";
-const content = `<h2>Status:</h2><h4>Time Entry Request for [${requester}] - Rejected</h4>`;
+const content = `<h2>Status:</h2><h4>Time Entry Request for [${requester}] - Rejected by [${approver}] with reason [${reason}]</h4>`;
 const subType = "html";
 
 if (isMailConfigured()) {
