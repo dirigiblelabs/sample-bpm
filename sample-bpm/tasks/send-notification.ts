@@ -1,6 +1,6 @@
-const process = require("bpm/process");
-const mailClient = require("mail/client");
-const config = require("core/configurations");
+import { configurations as config } from "sdk/core";
+import { client as mailClient } from "sdk/mail";
+import { process } from "sdk/bpm"
 
 const execution = process.getExecutionContext();
 const executionId = execution.getId();
@@ -21,7 +21,7 @@ let subType = "html";
 if (isMailConfigured()) {
     mailClient.send(from, to, subject, content, subType);
 } else {
-    console.log(`Mail will not be send because the mail client is not configured. Mail:\n\tsubject: ${subject}\n\tcontent: ${content}`);
+    console.log(`Mail will not be send because the mail client is not configured.\nMail:\n\tsubject: ${subject}\n\tcontent: ${content}`);
 }
 
 function isMailConfigured() {
