@@ -1,11 +1,11 @@
-import { Controller, Post, response } from "sdk/http"
+import { Controller, Post, Put, Get, response } from "sdk/http"
 import { user } from "sdk/security";
 import { process, tasks } from "sdk/bpm"
 
 @Controller
 class TimeEntryService {
 
-    @Post("/submitRequest")
+    @Post("/requests")
     public submitRequest(data: any) {
 
         process.start('time-entry-request', {
@@ -19,16 +19,16 @@ class TimeEntryService {
         response.setStatus(response.ACCEPTED);
     }
 
-    @Post("/approveRequest")
-    public approveRequest(data: any) {
-        const taskId = data.taskId;
+    @Put("/requests/:id/approve")
+    public approveRequest(data: any, ctx: any) {
+        const taskId = ctx.pathParameters.id;
         const reason = data.reason;
         this.completeTask(taskId, true, reason);
     }
 
-    @Post("/rejectRequest")
-    public rejectRequest(data: any) {
-        const taskId = data.taskId;
+    @Put("/requests/:id/reject")
+    public rejectRequest(data: any, ctx: any) {
+        const taskId = ctx.pathParameters.id;
         const reason = data.reason;
         this.completeTask(taskId, false, reason);
     }
@@ -40,5 +40,12 @@ class TimeEntryService {
             requestApproved: approved
         };
         tasks.complete(taskId, variables);
+    }
+
+    @Get("/requests/:id/details")
+    public getRequestDetails(_: any, ctx: any) {
+        const taskId = ctx.pathParameters.id;
+        const variables = tasks.getVariables(taskId);
+        return variables;
     }
 }

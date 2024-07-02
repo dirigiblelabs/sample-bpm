@@ -11,7 +11,7 @@ formView.controller('FormController', ['$scope', '$http', function ($scope, $htt
     $scope.model.hours = 0;
 
     $scope.onSubmitClicked = function(){
-        $http.post("/services/ts/sample-bpm/api/TimeEntryService.ts/submitRequest", JSON.stringify($scope.model)).then(function (response) {
+        $http.post("/services/ts/sample-bpm/api/TimeEntryService.ts/requests", JSON.stringify($scope.model)).then(function (response) {
             if (response.status != 202) {
                 alert(`Unable to submit Time Entry Request: '${response.message}'`);
                 $scope.resetForm();

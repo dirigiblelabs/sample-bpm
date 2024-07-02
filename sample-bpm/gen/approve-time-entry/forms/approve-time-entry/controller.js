@@ -18,7 +18,8 @@ formView.controller('FormController', ['$scope', '$http', function ($scope, $htt
             reason: $scope.model.reason
         };
     
-        $http.post("/services/ts/sample-bpm/api/TimeEntryService.ts/approveRequest", JSON.stringify(data))
+        const url = `/services/ts/sample-bpm/api/TimeEntryService.ts/requests/${taskId}/approve`;
+        $http.put(url, JSON.stringify(data))
             .then(function (response) {
             if (response.status != 200) {
                 alert(`Unable to approve Time Entry Request: '${response.message}'`);
@@ -35,7 +36,8 @@ formView.controller('FormController', ['$scope', '$http', function ($scope, $htt
             reason: $scope.model.reason
         };
     
-        $http.post("/services/ts/sample-bpm/api/TimeEntryService.ts/rejectRequest", JSON.stringify(data))
+        const url = `/services/ts/sample-bpm/api/TimeEntryService.ts/requests/${taskId}/reject`;
+        $http.put(url, JSON.stringify(data))
             .then(function (response) {
             if (response.status != 200) {
                 alert(`Unable to reject Time Entry Request: '${response.message}'`);
