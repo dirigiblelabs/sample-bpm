@@ -11,7 +11,7 @@ formView.controller('FormController', ['$scope', '$http', function ($scope, $htt
     let url = new URL(window.location);
     let params = new URLSearchParams(url.search);
     let taskId = params.get("taskId");
-    console.log(taskId);
+    console.log("Task id: " + taskId);
     
     $scope.approve = function () {
         $http.post("/services/bpm/bpm-processes/tasks/" + taskId, JSON.stringify(
