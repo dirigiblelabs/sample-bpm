@@ -7,7 +7,6 @@ const executionId = execution.getId();
 
 const requester = process.getVariable(executionId, "requester");
 
-
 const from = config.get("APP_SAMPLE_BPM_FROM_EMAIL");
 const to = config.get("APP_SAMPLE_BPM_TO_EMAIL");
 const subject = "Time Entry Request - Approved";
@@ -19,7 +18,6 @@ if (isMailConfigured()) {
 } else {
     console.log(`Mail will not be send because the mail client is not configured. Mail:\n\tsubject: ${subject}\n\tcontent: ${content}`);
 }
-
 
 function isMailConfigured() {
     return config.get("DIRIGIBLE_MAIL_USERNAME") &&
