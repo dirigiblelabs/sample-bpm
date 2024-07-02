@@ -7,12 +7,13 @@ rs.service()
     .resource("")
     .post((ctx, request, response) => {
         let data = request.getJSON();
+
         process.start('time-entry-request', {
             "User": "" + user.getName(),
-            "Project": "" + data.Project,
-            "Start": "" + data.Start,
-            "End": "" + data.End,
-            "Hours": "" + data.Hours
+            "Project": "" + data.project,
+            "Start": "" + data.startDate,
+            "End": "" + data.endDate,
+            "Hours": "" + data.hours
         });
         response.setStatus(response.ACCEPTED);
     })
