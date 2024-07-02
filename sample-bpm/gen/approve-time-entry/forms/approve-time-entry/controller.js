@@ -46,6 +46,24 @@ formView.controller('FormController', ['$scope', '$http', function ($scope, $htt
             $scope.entity = {};
             alert("Time Entry Request Rejected");
         });
+    
     };
+    
+    const detailsUrl = `/services/ts/sample-bpm/api/TimeEntryService.ts/requests/${taskId}/details`;
+    $http.get(detailsUrl)
+        .then(function (response) {
+            if (response.status != 200) {
+                alert(`Unable to reject Time Entry Request: '${response.message}'`);
+                return;
+            }
+            const details = response.data;
+    
+            // fill details
+            $scope.model.requester = details.requester;
+            $scope.model.hours = details.hours;
+            $scope.model.startDate = details.startDate;
+            $scope.model.endDate = details.endDate;
+            $scope.model.project = details.project;
+        });
 
 }]);

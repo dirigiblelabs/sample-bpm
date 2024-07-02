@@ -16,17 +16,73 @@
 	<body class="dg-vbox">
 		<fd-fieldset class="fd-margin--tiny" ng-form="forms.form">
 
+<div class=" dg-vbox dg-box--gap dg-box--stretch-items">
+			<h5 fd-title header-size="3.0">Request Details:</h5>
+				<fd-form-item horizontal="false">
+					<fd-form-label dg-colon="true" dg-required="false" for="icdb4b2f1-dcb4-cd33-6c30-f8fa231e6527">Requester</fd-form-label>
+					<fd-form-input-message-group dg-inactive="{{forms.form['icdb4b2f1-dcb4-cd33-6c30-f8fa231e6527'].$valid}}">
+						<fd-input id="icdb4b2f1-dcb4-cd33-6c30-f8fa231e6527"
+							name="icdb4b2f1-dcb4-cd33-6c30-f8fa231e6527"
+							ng-model="model.requester"
+							ng-required="false"
+							type="text"
+							compact="false"
+							placeholder=""
+							state="{{ !forms.form['icdb4b2f1-dcb4-cd33-6c30-f8fa231e6527'].$valid ? 'error' : '' }}"
+							ng-trim="false"
+							ng-minlength="0.0"
+							ng-maxlength="-1.0">
+						</fd-input>
+						<fd-form-message dg-type="error">Incorrect input</fd-form-message>
+					</fd-form-input-message-group>
+				</fd-form-item>
+				<fd-form-item horizontal="false">
+					<fd-form-label dg-colon="true" dg-required="false" for="ibd8aad12-5c26-ef36-984d-eaf3e02b8048">Project</fd-form-label>
+					<fd-form-input-message-group dg-inactive="{{forms.form['ibd8aad12-5c26-ef36-984d-eaf3e02b8048'].$valid}}">
+						<fd-input id="ibd8aad12-5c26-ef36-984d-eaf3e02b8048"
+							name="ibd8aad12-5c26-ef36-984d-eaf3e02b8048"
+							ng-model="model.project"
+							ng-required="false"
+							type="text"
+							compact="false"
+							placeholder=""
+							state="{{ !forms.form['ibd8aad12-5c26-ef36-984d-eaf3e02b8048'].$valid ? 'error' : '' }}"
+							ng-trim="false"
+							ng-minlength="0.0"
+							ng-maxlength="-1.0">
+						</fd-input>
+						<fd-form-message dg-type="error">Incorrect input</fd-form-message>
+					</fd-form-input-message-group>
+				</fd-form-item>
+				<fd-form-item horizontal="false">
+					<fd-form-label dg-colon="true" dg-required="false" for="i8825deef-96de-9176-ef76-6be35cb9cc4a">Start date</fd-form-label>
+					<fd-form-input-message-group dg-inactive="{{forms.form['i8825deef-96de-9176-ef76-6be35cb9cc4a'].$valid}}">
+						<fd-input id="i8825deef-96de-9176-ef76-6be35cb9cc4a"
+							name="i8825deef-96de-9176-ef76-6be35cb9cc4a"
+							ng-model="model.startDate"
+							ng-required="false"
+							type="text"
+							compact="false"
+							placeholder=""
+							state="{{ !forms.form['i8825deef-96de-9176-ef76-6be35cb9cc4a'].$valid ? 'error' : '' }}"
+							ng-trim="false"
+							ng-minlength="0.0"
+							ng-maxlength="-1.0">
+						</fd-input>
+						<fd-form-message dg-type="error">Incorrect input</fd-form-message>
+					</fd-form-input-message-group>
+				</fd-form-item>
 			<fd-form-item horizontal="false">
-				<fd-form-label dg-colon="true" dg-required="true" for="requestDetails">Request Details</fd-form-label>
-				<fd-form-input-message-group dg-inactive="{{forms.form['requestDetails'].$valid}}">
-					<fd-textarea id="requestDetails"
-						name="requestDetails"
-						ng-model="model.requestDetails"
-						ng-required="true"
+				<fd-form-label dg-colon="true" dg-required="false" for="i09944f75-b6e3-92c6-d2e5-4ff15f879477">End date</fd-form-label>
+				<fd-form-input-message-group dg-inactive="{{forms.form['i09944f75-b6e3-92c6-d2e5-4ff15f879477'].$valid}}">
+					<fd-textarea id="i09944f75-b6e3-92c6-d2e5-4ff15f879477"
+						name="i09944f75-b6e3-92c6-d2e5-4ff15f879477"
+						ng-model="model.endDate"
+						ng-required="false"
 						type="text"
 						compact="false"
-						placeholder="details about the request"
-						state="{{ !forms.form['requestDetails'].$valid ? 'error' : '' }}"
+						placeholder=""
+						state="{{ !forms.form['i09944f75-b6e3-92c6-d2e5-4ff15f879477'].$valid ? 'error' : '' }}"
 						ng-trim="false"
 						ng-minlength="0.0"
 						ng-maxlength="-1.0">
@@ -34,6 +90,27 @@
 					<fd-form-message dg-type="error">Incorrect input</fd-form-message>
 				</fd-form-input-message-group>
 			</fd-form-item>
+			<fd-form-item horizontal="false">
+				<fd-form-label dg-colon="true" dg-required="false" for="i6a4a0df6-2c22-387c-34da-f8e5daaf3584">Hours</fd-form-label>
+				<fd-form-input-message-group dg-inactive="{{forms.form['i6a4a0df6-2c22-387c-34da-f8e5daaf3584'].$valid}}">
+					<fd-textarea id="i6a4a0df6-2c22-387c-34da-f8e5daaf3584"
+						name="i6a4a0df6-2c22-387c-34da-f8e5daaf3584"
+						ng-model="model.hours"
+						ng-required="false"
+						type="text"
+						compact="false"
+						placeholder=""
+						state="{{ !forms.form['i6a4a0df6-2c22-387c-34da-f8e5daaf3584'].$valid ? 'error' : '' }}"
+						ng-trim="false"
+						ng-minlength="0.0"
+						ng-maxlength="-1.0">
+					</fd-textarea>
+					<fd-form-message dg-type="error">Incorrect input</fd-form-message>
+				</fd-form-input-message-group>
+			</fd-form-item>
+</div>
+<div class=" dg-vbox dg-box--gap dg-box--stretch-items">
+			<h5 fd-title header-size="3.0">Decision Details:</h5>
 			<fd-form-item horizontal="false">
 				<fd-form-label dg-colon="true" dg-required="true" for="reason">Reason</fd-form-label>
 				<fd-form-input-message-group dg-inactive="{{forms.form['reason'].$valid}}">
@@ -52,6 +129,7 @@
 					<fd-form-message dg-type="error">Incorrect input</fd-form-message>
 				</fd-form-input-message-group>
 			</fd-form-item>
+</div>
 <div class=" dg-hbox dg-box--gap dg-box--stretch-items">
 			<div>
 				<fd-button class="dg-full-width" type="submit" dg-label="Approve" compact="false" dg-type="positive" ng-click="approve()"></fd-button>
