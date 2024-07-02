@@ -41,5 +41,12 @@ if (isMailConfigured()) {
 }
 
 function isMailConfigured() {
-    return false;
+    return config.get("DIRIGIBLE_MAIL_USERNAME") &&
+        config.get("DIRIGIBLE_MAIL_PASSWORD") &&
+        config.get("DIRIGIBLE_MAIL_TRANSPORT_PROTOCOL") &&
+        (
+            (config.get("DIRIGIBLE_MAIL_SMTPS_HOST") && config.get("DIRIGIBLE_MAIL_SMTPS_PORT") && config.get("DIRIGIBLE_MAIL_SMTPS_PORT"))
+            ||
+            (config.get("DIRIGIBLE_MAIL_SMTP_HOST") && config.get("DIRIGIBLE_MAIL_SMTP_PORT") && config.get("DIRIGIBLE_MAIL_SMTP_AUTH"))
+        );
 }
