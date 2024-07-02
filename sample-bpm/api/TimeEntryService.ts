@@ -9,10 +9,10 @@ class TimeEntryService {
     public submitRequest(data: any) {
 
         process.start('time-entry-request', {
-            "user": user.getName(),
+            "requester": user.getName(),
             "project": data.project,
-            "start": data.startDate,
-            "end": data.endDate,
+            "startDate": data.startDate,
+            "endDate": data.endDate,
             "hours": data.hours
         });
 

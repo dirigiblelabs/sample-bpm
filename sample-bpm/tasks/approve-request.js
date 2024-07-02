@@ -2,24 +2,24 @@ const process = require("bpm/process");
 const mailClient = require("mail/client");
 const config = require("core/configurations");
 
-let execution = process.getExecutionContext();
-let executionId = execution.getId();
+const execution = process.getExecutionContext();
+const executionId = execution.getId();
 
-let user = process.getVariable(executionId, "user");
+const requester = process.getVariable(executionId, "requester");
 
-console.log(`Time Entry Request Approved for User [${user}]`);
+
+const from = config.get("APP_SAMPLE_BPM_FROM_EMAIL");
+const to = config.get("APP_SAMPLE_BPM_TO_EMAIL");
+const subject = "Time Entry Request - Approved";
+const content = `<h2>Status:</h2><h4>Time Entry Request for [${requester}] - Approved</4>`;
+const subType = "html";
 
 if (isMailConfigured()) {
-    let from = config.get("APP_SAMPLE_BPM_FROM_EMAIL");
-    let to = config.get("APP_SAMPLE_BPM_TO_EMAIL");
-    let subject = "Time Entry Request - Approved";
-    let content = `<h2>Status:</h2><h4>Time Entry Request for [${user}] - Approved</4>`;
-    let subType = "html";
-
     mailClient.send(from, to, subject, content, subType);
 } else {
-    console.error("Missing mail configuration");
+    console.log(`Mail will not be send because the mail client is not configured. Mail:\n\tsubject: ${subject}\n\tcontent: ${content}`);
 }
+
 
 function isMailConfigured() {
     return config.get("DIRIGIBLE_MAIL_USERNAME") &&
