@@ -3,13 +3,14 @@
 1. Start Eclipse Dirigible.
 1. Clone the sample in the Git perspective of Eclipse Dirigible.
 1. Wait between 1 and 2 minutes for the sample to be completely activated.
-1. Navigate to http://localhost:8080/services/v4/web/sample-bpm/submit/ to access the _**Submit Time Entry Request Form**_.
+1. Navigate to [Submit Time Entry Request Form](http://localhost:8080/services/web/sample-bpm/gen/submit-time-entry-request/forms/submit-time-entry-request/index.html).
+1. Submit a new request
+1. Claim and approve the time entry request using [the inbox UI](http://localhost:8080/services/web/inbox/)
 1. (Optional) Provide the mail environment variables.
 1. (Optional) Restart the Eclipse Dirigible instance to apply the new environment variables.
 
 ## Process
-
-<img width="1438" alt="Screenshot 2022-10-14 at 23 32 28" src="https://user-images.githubusercontent.com/4092083/195938498-32129208-f218-4365-9ce4-6f4238c44688.png">
+<img width="1330" alt="image" src="https://github.com/dirigiblelabs/sample-bpm/assets/5058839/efbf5058-8179-4de6-bf9d-e1754bd0f10e">
 
 ## Mail Environment Variabels
 

@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="forms" ng-controller="FormController">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" sizes="any" href="data:;base64,iVBORw0KGgo=">
+		<title dg-view-title></title>
+		<script type="text/javascript" src="view.js"></script>
+		<script type="text/javascript" src="/services/js/resources-core/services/loader.js?id=ide-view-js"></script>
+		<link type="text/css" rel="stylesheet" href="/services/js/resources-core/services/loader.js?id=ide-view-css" />
+		<theme></theme>
+		<script type="text/javascript" src="controller.js"></script>
+	</head>
+
+	<body class="dg-vbox">
+		<fd-fieldset class="fd-margin--tiny" ng-form="forms.form">
+
+<div class=" dg-vbox dg-box--gap dg-box--stretch-items">
+			<h5 fd-title header-size="2.0">Submit Time Entry Request</h5>
+			<fd-form-item horizontal="false">
+				<fd-form-label dg-colon="true" dg-required="true" for="idProject">Project</fd-form-label>
+				<fd-select dg-id="idProject" name="idProject" label-id="idProject" compact="false" ng-required="true" ng-model="model.project">
+					<fd-option text="Project Alpha" value="'ProjectAlpha'"></fd-option>
+					<fd-option text="Project Beta" value="'ProjectBeta'"></fd-option>
+					<fd-option text="Project Evolution" value="'ProjectEvolution'"></fd-option>
+					<fd-option text="Project Next" value="'ProjectNext'"></fd-option>
+				</fd-select>
+			</fd-form-item>
+			<fd-form-item horizontal="false">
+				<fd-form-label dg-colon="true" dg-required="true" for="idStart">Start</fd-form-label>
+				<fd-input id="idStart" name="idStart" compact="false" ng-model="model.startDate" ng-required="true" type="date"></fd-input>
+			</fd-form-item>
+			<fd-form-item horizontal="false">
+				<fd-form-label dg-colon="true" dg-required="true" for="idEnd">End</fd-form-label>
+				<fd-input id="idEnd" name="idEnd" compact="false" ng-model="model.endDate" ng-required="true" type="date"></fd-input>
+			</fd-form-item>
+			<fd-form-item horizontal="false">
+				<fd-form-label dg-colon="true" dg-required="true" for="idHours">Hours</fd-form-label>
+				<fd-step-input dg-id="idHours" name="idHours" ng-model="model.hours" dg-required="true" dg-min="0.0"
+					dg-max="200.0" dg-step="1.0" state="{{ !forms.form['idHours'].$valid ? 'error' : '' }}" compact="false">
+				</fd-step-input>
+			</fd-form-item>
+<div class=" dg-hbox dg-box--gap dg-box--stretch-items">
+			<div>
+				<fd-button class="dg-full-width" type="submit" dg-label="Submit" compact="false" dg-type="emphasized" ng-click="onSubmitClicked()"></fd-button>
+			</div>
+			<div>
+				<fd-button class="dg-full-width"  dg-label="Cancel" compact="false" dg-type="" ng-click="resetForm()"></fd-button>
+			</div>
+</div>
+</div>
+
+		</fd-fieldset>
+
+	</body>
+
+</html>
