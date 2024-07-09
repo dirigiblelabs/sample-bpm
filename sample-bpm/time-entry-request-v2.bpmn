@@ -11,7 +11,7 @@
     </serviceTask>
     <sequenceFlow id="sid-797626AE-B2F6-4C00-ABEE-FB30ADC177E4" sourceRef="sid-3334E861-7999-4B89-B8B0-11724BA17A3E" targetRef="sid-ED1BBD7E-41C4-42D7-A933-2CD979372BE7"/>
     <endEvent id="sid-70B488C1-384A-4E19-8091-1B12D1AEC7FD"/>
-    <userTask id="sid-1949B473-2C74-4A44-BBB5-EA6235D62426" name="Process Time Entry Request" flowable:candidateGroups="ROLE_ADMINISTRATOR,ROLE_DEVELOPER" flowable:formKey="http://localhost:8080/services/web/sample-bpm/gen/approve-time-entry/forms/approve-time-entry/index.html"/>
+    <userTask id="sid-1949B473-2C74-4A44-BBB5-EA6235D62426" name="Process Time Entry Request" flowable:candidateGroups="ADMINISTRATOR,DEVELOPER" flowable:formKey="http://localhost:8080/services/web/sample-bpm/gen/approve-time-entry/forms/approve-time-entry/index.html"/>
     <serviceTask id="sid-07258D72-C009-406E-82EE-512FC68F9339" name="Approve Time Entry Request" flowable:async="true" flowable:class="org.eclipse.dirigible.components.engine.bpm.flowable.delegate.DirigibleCallDelegate">
       <extensionElements>
         <flowable:field name="handler">
