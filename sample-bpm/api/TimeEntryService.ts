@@ -45,7 +45,6 @@ class TimeEntryService {
     @Get("/requests/:id/details")
     public getRequestDetails(_: any, ctx: any) {
         const taskId = ctx.pathParameters.id;
-        const variables = tasks.getVariables(taskId);
-        return variables;
+        return tasks.getVariables(taskId);
     }
 }

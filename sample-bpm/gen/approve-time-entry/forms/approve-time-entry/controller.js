@@ -53,7 +53,7 @@ formView.controller('FormController', ['$scope', '$http', function ($scope, $htt
     $http.get(detailsUrl)
         .then(function (response) {
             if (response.status != 200) {
-                alert(`Unable to reject Time Entry Request: '${response.message}'`);
+                alert(`Unable to get request details: '${response.message}'`);
                 return;
             }
             const details = response.data;
